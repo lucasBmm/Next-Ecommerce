@@ -2,6 +2,7 @@ const data = {
   products: [
     {
       name: 'Free Shirt',
+      slug: 'free-shirt',
       category: 'Shirts',
       image: '/images/shirt1.jpg',
       price: 70,
@@ -12,8 +13,9 @@ const data = {
     },
     {
       name: 'Fit Shirt',
+      slug: 'fit-shirt',
       category: 'Shirts',
-      image: '/images/shirt1.jpg',
+      image: '/images/shirt2.jpg',
       price: 30,
       brand: 'Adidas',
       numReviews: 10,
@@ -22,8 +24,9 @@ const data = {
     },
     {
       name: 'Slim Shirt',
+      slug: 'slim-shirt',
       category: 'Shirts',
-      image: '/images/shirt1.jpg',
+      image: '/images/shirt3.jpg',
       price: 50,
       brand: 'Lacoste',
       numReviews: 10,
@@ -31,9 +34,10 @@ const data = {
       description: 'A popular shirt',
     },
     {
-      name: 'Free Shirt',
+      name: 'Free Pants',
+      slug: 'free-pants',
       category: 'Shirts',
-      image: '/images/shirt1.jpg',
+      image: '/images/pants1.jpg',
       price: 35,
       brand: 'Adidas',
       numReviews: 10,
@@ -42,8 +46,9 @@ const data = {
     },
     {
       name: 'Golf Pants',
+      slug: 'glof-pants',
       category: 'Shirts',
-      image: '/images/shirt1.jpg',
+      image: '/images/pants2.jpg',
       price: 90,
       brand: 'Oliver',
       numReviews: 10,
@@ -52,23 +57,16 @@ const data = {
     },
     {
       name: 'Fit Pants',
+      slug: 'fit-pants',
       category: 'Pants',
-      image: '/images/shirt1.jpg',
+      image: '/images/pants3.jpg',
       price: 70,
       brand: 'Zara',
       numReviews: 10,
       countInStock: 20,
       description: 'A popular Pants',
     },
-    {
-      name: 'Free Shirt',
-      category: 'Shirts',
-      image: '/images/shirt1.jpg',
-      price: 70,
-      brand: 'Nike',
-      numReviews: 10,
-      countInStock: 20,
-      description: 'A popular shirt',
-    },
   ],
 };
+
+export default data;
