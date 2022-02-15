@@ -15,13 +15,14 @@ import {
   List,
 } from '@material-ui/core';
 import React, { useContext } from 'react';
+import dynamic from 'next/dynamic';
 import Layout from '../components/Layout';
 import { Store } from '../utils/store';
 import NextLink from 'next/link';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function CartScreen() {
+export function CartScreen() {
   const { state } = useContext(Store);
   const {
     cart: { cartItems },
@@ -120,3 +121,5 @@ export default function CartScreen() {
     </Layout>
   );
 }
+
+export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });
