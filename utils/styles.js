@@ -28,6 +28,10 @@ const useStyles = makeStyles({
   section: {
     margin: '10px 0',
   },
+  form: {
+    maxWidth: '60%',
+    margin: '0 auto',
+  },
 });
 
 export default useStyles;
