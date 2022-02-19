@@ -6,13 +6,24 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Layout from '../components/Layout';
 import useStyles from '../utils/styles';
 import NextLink from 'next/link';
 import axios from 'axios';
+import { Store } from '../utils/store';
+import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 
 export default function Login() {
+  const { state, dispatch } = useContext(Store);
+  const router = useRouter();
+  const { redirect } = router.query;
+  const { userInfo } = state;
+
+  if (userInfo) {
+    router.push('/');
+  }
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const classes = useStyles();
@@ -24,7 +35,9 @@ export default function Login() {
         email,
         password,
       });
-      alert('success login');
+      dispatch({ type: 'USER_LOGIN', payload: data });
+      Cookies.set('userInfo', data);
+      router.push(redirect || '/');
     } catch (err) {
       alert(err.reponse.data ? err.reponse.data.message : err.message);
     }
