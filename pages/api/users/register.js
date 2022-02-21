@@ -18,7 +18,7 @@ handler.post(async (req, res) => {
   await db.disconnect();
 
   const token = signToken(user);
-  res.sendDate({
+  res.send({
     token,
     _id: user._id,
     name: user.name,

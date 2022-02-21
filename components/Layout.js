@@ -81,7 +81,7 @@ export default function Layout({ children, title }) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <AppBar position="static" className={classes.navbar}>
-          <Toolbar>
+          <Toolbar className={classes.toolbar}>
             <NextLink href="/" passHref>
               <Link>
                 <Typography className={classes.brand}>E-Commerce</Typography>
@@ -93,70 +93,72 @@ export default function Layout({ children, title }) {
                 checked={darkMode}
                 onChange={darkModeChangeHandler}
               ></Switch>
-              <NextLink href="/cart" passHref>
-                <Link>
-                  <Typography>
-                    {cart.cartItems.length > 0 ? (
-                      <Badge
-                        color="secondary"
-                        badgeContent={cart.cartItems.length}
-                      >
-                        Cart
-                      </Badge>
-                    ) : (
-                      'Cart'
-                    )}
-                  </Typography>
-                </Link>
-              </NextLink>
-              {userInfo ? (
-                <>
-                  <Button
-                    aria-controls="simple-menu"
-                    aria-haspopup="true"
-                    onClick={loginClickHandler}
-                    className={classes.navbarButton}
-                  >
-                    {userInfo.name}
-                  </Button>
-                  <Menu
-                    id="simple-menu"
-                    anchorEl={anchorEl}
-                    keepMounted
-                    open={Boolean(anchorEl)}
-                    onClose={loginMenuCloseHandler}
-                  >
-                    <MenuItem
-                      onClick={(e) => loginMenuCloseHandler(e, '/profile')}
-                    >
-                      Profile
-                    </MenuItem>
-                    <MenuItem
-                      onClick={(e) =>
-                        loginMenuCloseHandler(e, '/order-history')
-                      }
-                    >
-                      Order History
-                    </MenuItem>
-                    {userInfo.isAdmin && (
-                      <MenuItem
-                        onClick={(e) =>
-                          loginMenuCloseHandler(e, '/admin/dashboard')
-                        }
-                      >
-                        Admin Dashboard
-                      </MenuItem>
-                    )}
-                    <MenuItem onClick={logoutClickHandler}>Logout</MenuItem>
-                  </Menu>
-                </>
-              ) : (
-                <NextLink href="/login" passHref>
+              <div className={classes.navlinks}>
+                <NextLink href="/cart" passHref>
                   <Link>
-                    <Typography>Login</Typography>
+                    <Typography>
+                      {cart.cartItems.length > 0 ? (
+                        <Badge
+                          color="secondary"
+                          badgeContent={cart.cartItems.length}
+                        >
+                          Cart
+                        </Badge>
+                      ) : (
+                        'Cart'
+                      )}
+                    </Typography>
                   </Link>
                 </NextLink>
-              )}
+                {userInfo ? (
+                  <>
+                    <Button
+                      aria-controls="simple-menu"
+                      aria-haspopup="true"
+                      onClick={loginClickHandler}
+                      className={classes.navbarButton}
+                    >
+                      {userInfo.name}
+                    </Button>
+                    <Menu
+                      id="simple-menu"
+                      anchorEl={anchorEl}
+                      keepMounted
+                      open={Boolean(anchorEl)}
+                      onClose={loginMenuCloseHandler}
+                    >
+                      <MenuItem
+                        onClick={(e) => loginMenuCloseHandler(e, '/profile')}
+                      >
+                        Profile
+                      </MenuItem>
+                      <MenuItem
+                        onClick={(e) =>
+                          loginMenuCloseHandler(e, '/order-history')
+                        }
+                      >
+                        Order History
+                      </MenuItem>
+                      {userInfo.isAdmin && (
+                        <MenuItem
+                          onClick={(e) =>
+                            loginMenuCloseHandler(e, '/admin/dashboard')
+                          }
+                        >
+                          Admin Dashboard
+                        </MenuItem>
+                      )}
+                      <MenuItem onClick={logoutClickHandler}>Logout</MenuItem>
+                    </Menu>
+                  </>
+                ) : (
+                  <NextLink href="/login" passHref>
+                    <Link>
+                      <Typography>Login</Typography>
+                    </Link>
+                  </NextLink>
+                )}
+              </div>
             </div>
           </Toolbar>
         </AppBar>

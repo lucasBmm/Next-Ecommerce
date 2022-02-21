@@ -18,6 +18,13 @@ const useStyles = makeStyles({
   navlink: {
     display: 'flex',
   },
+  navlinks: {
+    display: 'flex',
+    marginTop: '7px',
+  },
+  nameLink: {
+    marginBottom: '10px',
+  },
   main: {
     minHeight: '80vh',
   },
@@ -35,6 +42,11 @@ const useStyles = makeStyles({
   navbarButton: {
     color: '#ffffff',
     textTransform: 'initial',
+    transform: 'translateY(-8px)',
+    fontSize: '1rem',
+  },
+  toolbar: {
+    justifyContent: 'space-between',
   },
 });
 
