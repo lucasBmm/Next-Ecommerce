@@ -1,6 +1,5 @@
 import {
   Button,
-  Link,
   List,
   ListItem,
   TextField,
@@ -13,8 +12,6 @@ import { Store } from '../utils/store';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import { Controller, useForm } from 'react-hook-form';
-import { useSnackbar } from 'notistack';
-import NextLink from 'next/link';
 
 export default function Shipping() {
   const {
@@ -22,10 +19,8 @@ export default function Shipping() {
     control,
     formState: { errors },
   } = useForm();
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
-  const { redirect } = router.query;
   const { userInfo } = state;
   useEffect(() => {
     if (!userInfo) {
