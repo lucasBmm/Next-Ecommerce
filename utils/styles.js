@@ -48,6 +48,9 @@ const useStyles = makeStyles({
   toolbar: {
     justifyContent: 'space-between',
   },
+  transparentBackground: {
+    backgroundColor: 'transparent',
+  },
 });
 
 export default useStyles;
