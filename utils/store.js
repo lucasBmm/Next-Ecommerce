@@ -12,7 +12,7 @@ const initialState = {
       ? JSON.parse(Cookies.get('shippingAddress'))
       : { location: {} },
     paymentMethod: Cookies.get('paymentMethod')
-      ? Cookies.get('paymentMethod')
+      ? JSON.parse(Cookies.get('paymentMethod'))
       : '',
   },
   userInfo: Cookies.get('userInfo')
